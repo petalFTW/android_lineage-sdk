@@ -374,7 +374,7 @@ public final class LineageSettings {
             new InclusiveIntegerRangeValidator(0, 86400);
 
     private static final Validator sHardwareKeyActionvalidator =
-            new InclusiveIntegerRangeValidator(0, 13);
+            new InclusiveIntegerRangeValidator(0, 20);
 
     private static final Validator sAlwaysTrueValidator = new Validator() {
         @Override
@@ -1210,6 +1210,25 @@ public final class LineageSettings {
         /** @hide */
         public static final Validator KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR =
                 sHardwareKeyActionvalidator;
+
+        /**
+         * Action to perform when the assistant (search) key is double-tapped. (Default is 0)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         */
+        public static final String KEY_ASSIST_DOUBLE_TAP_ACTION = "key_assist_double_tap_action";
+
+        /** @hide */
+        public static final Validator KEY_ASSIST_DOUBLE_TAP_ACTION_VALIDATOR =
+                sHardwareKeyActionvalidator;
+
+        /**
+         * Whether to vibrate when the assistant (search) key action fires. (Default is 1)
+         */
+        public static final String KEY_ASSIST_HAPTIC_FEEDBACK = "key_assist_haptic_feedback";
+
+        /** @hide */
+        public static final Validator KEY_ASSIST_HAPTIC_FEEDBACK_VALIDATOR =
+                sBooleanValidator;
 
         /**
          * Action to perform when the app switch key is pressed. (Default is 2)
@@ -2160,6 +2179,10 @@ public final class LineageSettings {
             VALIDATORS.put(KEY_ASSIST_ACTION, KEY_ASSIST_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_ASSIST_LONG_PRESS_ACTION,
                     KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_ASSIST_DOUBLE_TAP_ACTION,
+                    KEY_ASSIST_DOUBLE_TAP_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_ASSIST_HAPTIC_FEEDBACK,
+                    KEY_ASSIST_HAPTIC_FEEDBACK_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION,
                     KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
